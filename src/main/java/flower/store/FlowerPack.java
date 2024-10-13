@@ -4,8 +4,8 @@ public class FlowerPack {
     private int amount;
 
     public FlowerPack(FlowerPack pack) {
-        flower = new Flower(pack.flower)
-        amount = pack.amount
+        flower = new Flower(pack.flower);
+        amount = pack.amount;
     }
 
     public double getPrice() {
