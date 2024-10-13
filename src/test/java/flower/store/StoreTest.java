@@ -28,7 +28,7 @@ class StoreTest {
     @Test
     void testSearch() {
         FlowerSpecification roseSpec = new FlowerSpecification(FlowerColor.RED, 
-                                                                FlowerType.ROSE);
+                                                            FlowerType.ROSE);
         ArrayList<Flower> result = new ArrayList<>();
         result = store.search(roseSpec);
         Assertions.assertEquals(1, result.size());
