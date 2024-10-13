@@ -14,6 +14,18 @@ public class Flower {
     private double price;
     @Getter
     private FlowerType flowerType;
+    
+    public Flower() {
+        sepalLength = 0;
+        price = 0;
+    }
+
+    public Flower(Flower flower) {
+        sepalLength = flower.sepalLength;
+        color = flower.color;
+        price = flower.price;
+        flowerType = flower.flowerType;
+    }
 
     public String getColor() {
         return color.toString();
