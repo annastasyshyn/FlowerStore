@@ -32,7 +32,8 @@ class StoreTest {
         ArrayList<Flower> result = new ArrayList<>();
         result = store.search(roseSpec);
         Assertions.assertEquals(1, result.size());
-        Assertions.assertEquals(FlowerType.ROSE, result.get(0).getFlowerType());
+        Assertions.assertEquals(FlowerType.ROSE,
+                                result.get(0).getFlowerType());
         Assertions.assertEquals("#FF0000", result.get(0).getColor());
     }
 }

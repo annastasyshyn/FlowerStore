@@ -2,46 +2,39 @@ package flower.store;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import org.junit.jupiter.api.Assertions;
 
 class FlowerBucketTest {
-    private double delta;
-    private double priceRose;
-    private double priceTulip;
-    private int roseAmount;
-    private int tulipAmount;
+    private static final double DELTA = 0.0001;
+    private static final double PRICE_ROSE = 10.0;
+    private static final double PRICE_TULIP = 5.0;
+    private static final int ROSE_AMOUNT = 5;
+    private static final int TULIP_AMOUNT = 3;
+
     private FlowerBucket bucket;
     private FlowerPack rosePack;
     private FlowerPack tulipPack;
 
-
     @BeforeEach
     void setUp() {
-        delta = 0.0001;
-        priceRose = 10.0;
-        priceTulip = 5.0;
-        roseAmount = 5;
-        tulipAmount = 3;
-
         bucket = new FlowerBucket();
         Flower rose = new Flower();
-        rose.setPrice(priceRose);
-        rosePack = new FlowerPack(rose, roseAmount);
+        rose.setPrice(PRICE_ROSE);
+        rosePack = new FlowerPack(rose, ROSE_AMOUNT);
         
         Flower tulip = new Flower();
-        tulip.setPrice(priceTulip);
-        tulipPack = new FlowerPack(tulip, tulipAmount);
+        tulip.setPrice(PRICE_TULIP);
+        tulipPack = new FlowerPack(tulip, TULIP_AMOUNT);
     }
 
     @Test
     void testGetPrice() {
         bucket.addFlower(rosePack);
-        Assertions.assertEquals(priceRose * roseAmount, bucket.getPrice(), 
-                                delta);
+        Assertions.assertEquals(PRICE_ROSE * ROSE_AMOUNT, bucket.getPrice(),
+                                DELTA);
+        
         bucket.addFlower(tulipPack);
-        Assertions.assertEquals(priceRose * roseAmount 
-                                + priceTulip * tulipAmount,
-                                bucket.getPrice(), delta);
+        Assertions.assertEquals(PRICE_ROSE * ROSE_AMOUNT + PRICE_TULIP 
+                                * TULIP_AMOUNT, bucket.getPrice(), DELTA);
     }
 }
