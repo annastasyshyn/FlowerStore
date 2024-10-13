@@ -8,6 +8,9 @@ public class Store {
     public Store() {
         flowers = new ArrayList<>();
     }
+    public void addFlower(Flower flower) {
+        flowers.add(flower);
+    }
     public ArrayList<Flower> search(FlowerSpecification specification){
         ArrayList<Flower> flowerRes = new ArrayList<>();
         for (Flower flower: flowers) {
