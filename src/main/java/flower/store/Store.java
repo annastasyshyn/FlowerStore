@@ -11,10 +11,10 @@ public class Store {
     public void addFlower(Flower flower) {
         flowers.add(flower);
     }
-    public ArrayList<Flower> search(FlowerSpecification specification){
+    public ArrayList<Flower> search(FlowerSpecification specification) {
         ArrayList<Flower> flowerRes = new ArrayList<>();
         for (Flower flower: flowers) {
-            if (flower.getSpecification().matches(specification)){
+            if (flower.getSpecification().matches(specification)) {
                 flowerRes.add(flower);
             }
         }
