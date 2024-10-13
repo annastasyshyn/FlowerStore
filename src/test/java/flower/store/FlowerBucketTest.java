@@ -6,11 +6,11 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
 
 class FlowerBucketTest {
-    private final double delta = 0.001;
-    private final double priceRose = 10.0;
-    private final double priceTulip = 5.0;
-    private final int roseAmount = 5;
-    private final int tulipAmount = 3;
+    private double delta;
+    private double priceRose;
+    private double priceTulip;
+    private int roseAmount;
+    private int tulipAmount;
     private FlowerBucket bucket;
     private FlowerPack rosePack;
     private FlowerPack tulipPack;
@@ -18,6 +18,12 @@ class FlowerBucketTest {
 
     @BeforeEach
     void setUp() {
+        delta = 0.0001;
+        priceRose = 10.0;
+        priceTulip = 5.0;
+        roseAmount = 5;
+        tulipAmount = 3;
+
         bucket = new FlowerBucket();
         Flower rose = new Flower();
         rose.setPrice(priceRose);
@@ -31,9 +37,11 @@ class FlowerBucketTest {
     @Test
     void testGetPrice() {
         bucket.addFlower(rosePack);
-        Assertions.assertEquals(priceRose * roseAmount, bucket.getPrice(), delta);
+        Assertions.assertEquals(priceRose * roseAmount, bucket.getPrice(), 
+                                delta);
         bucket.addFlower(tulipPack);
-        Assertions.assertEquals(priceRose * roseAmount + priceTulip * tulipAmount,
+        Assertions.assertEquals(priceRose * roseAmount 
+                                + priceTulip * tulipAmount,
                                 bucket.getPrice(), delta);
     }
 }
